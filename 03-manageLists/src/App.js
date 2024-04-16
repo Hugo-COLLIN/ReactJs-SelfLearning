@@ -21,12 +21,16 @@ function App() {
    // render
    return (
     <>
+      <h1>Liste de fruits</h1>
+      {/* <ul>
+        {fruits.map((fruit) => {
+          return <li key={fruit.id} >{fruit.nom}</li>
+        })}
+      </ul> */}
       <ul>
-        {voiture}
-        <li>Abricot</li>
-        <li>Banane</li>
-        <li>Cerise</li>
-        {voitures}
+        {fruits.map((fruit) => 
+          <li key={fruit.id} >{fruit.nom}</li>
+        )}
       </ul>
     </>
    );
