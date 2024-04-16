@@ -2,21 +2,32 @@ import { useState } from "react";
 
 function App() {
    // state
-   const [count, setCount] = useState(1);
+   const [fruits, setFruits] = useState([
+    {id:1, nom:"Abricot"},
+    {id:2, nom:"Banane"},
+    {id:3, nom:"Cerise"},
+   ])
+
+   const voiture = <li>Tesla</li>;
+   const voitures = [
+    <li>Audi</li>,
+    <li>BM</li>,
+    <li>Clio</li>,
+  ]
+
 
    // behaviours
-   const handleClick = () => {
-    console.log(count);
-    setCount(count + 1);
-    console.log(count);
-   }
 
    // render
    return (
     <>
-      <h1>{count}</h1>
-      <button onClick={handleClick}>Increment +</button>
-      <button onClick={() => alert("2222")}>test</button>
+      <ul>
+        {voiture}
+        <li>Abricot</li>
+        <li>Banane</li>
+        <li>Cerise</li>
+        {voitures}
+      </ul>
     </>
    );
 }
