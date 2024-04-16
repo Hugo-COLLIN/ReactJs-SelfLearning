@@ -1,3 +1,7 @@
+
+
+Component logic:
+```js
 function App() {
    // state
 
@@ -7,3 +11,4 @@ function App() {
 }
 
 export default App;
+```
