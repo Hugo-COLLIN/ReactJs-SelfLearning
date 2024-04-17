@@ -17,8 +17,19 @@ function App() {
 
 
    // behaviours
-   const handleDelete = (id) => {
+   const handleDelete = (id) => { // Modifier un state tableau
       console.log(id);
+
+      // 1. Copie du state
+      // const fruitsCopy = fruits.slice(); // Methode peu utilisée
+      const fruitsCopy = [...fruits]; // Méthode commune
+
+      // 2. Manipuler la copie du state
+      const fruitsCopyUpdated = 
+        fruitsCopy.filter(fruit => fruit.id !== id);
+
+      // 3. Modifier le tate avec le setter
+      setFruits(fruitsCopyUpdated);
    }
  
    // render
