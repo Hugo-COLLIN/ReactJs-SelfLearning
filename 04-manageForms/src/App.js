@@ -33,6 +33,7 @@ function App() {
     event.preventDefault();
     console.log(inputRef);
     console.log(inputRef.current);
+    console.log(inputRef.current.value);
    }
  
    // render
@@ -62,4 +63,5 @@ export default App;
 // 1. Création
 // 2. Soumission
 // 3. Collecte des données
-// 3a. getElementById-be-like - connaitre
+// 3a. getElementById-be-like - Ne pas utiliser car ne provoque pas de re-render
+// 3b. 
