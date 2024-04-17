@@ -17,7 +17,10 @@ function App() {
 
 
    // behaviours
-
+   const handleDelete = (id) => {
+      console.log(id);
+   }
+ 
    // render
    return (
     <>
@@ -29,7 +32,9 @@ function App() {
       </ul> */}
       <ul>
         {fruits.map((fruit) => 
-          <li key={fruit.id} >{fruit.nom}</li>
+          <li key={fruit.id}>
+            {fruit.nom} <button onClick={() => handleDelete(fruit.id)}>x</button>
+            </li>
         )}
       </ul>
     </>
