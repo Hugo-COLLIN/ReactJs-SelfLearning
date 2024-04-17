@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function App() {
    // state
@@ -8,12 +8,7 @@ function App() {
     {id:3, nom:"Cerise"},
    ])
 
-   const voiture = <li>Tesla</li>;
-   const voitures = [
-    <li>Audi</li>,
-    <li>BM</li>,
-    <li>Clio</li>,
-  ]
+   const inputRef = useRef();
 
 
    // behaviours
@@ -36,7 +31,8 @@ function App() {
     */
    const handleSubmit = (event) => {
     event.preventDefault();
-    alert("handleSubmit");
+    console.log(inputRef);
+    console.log(inputRef.current);
    }
  
    // render
@@ -53,7 +49,7 @@ function App() {
 
        {/* 04.1. Création du formulaire*/}
       <form action="submit" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Ajouter un fruit..." />
+        <input ref={inputRef} type="text" placeholder="Ajouter un fruit..." />
         <button>Ajouter +</button>
       </form>
     </>
@@ -66,3 +62,4 @@ export default App;
 // 1. Création
 // 2. Soumission
 // 3. Collecte des données
+// 3a. getElementById-be-like - connaitre
