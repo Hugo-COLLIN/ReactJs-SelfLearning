@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function FruitForm ({fruits, setFruits}) {
+export default function FruitForm ({handleAdd}) {
     // --- STATE ---
     const [newFruit, setNewFruit]  = useState("")
 
@@ -16,12 +16,8 @@ export default function FruitForm ({fruits, setFruits}) {
 
     const id = new Date().getTime();
     const nom = newFruit;
-
     const fruitToAdd = { id, nom };
-
-    setFruits([
-      ...fruits, fruitToAdd
-    ]);
+    handleAdd(fruitToAdd);
 
     setNewFruit("");
    }

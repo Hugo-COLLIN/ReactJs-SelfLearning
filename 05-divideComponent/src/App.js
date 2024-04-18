@@ -20,6 +20,12 @@ function App() {
     setFruits(fruits.filter(fruit => fruit.id !== id));
    }
 
+   const handleAdd = (fruitToAdd) => {
+    setFruits([
+      ...fruits, fruitToAdd
+    ]);
+   }
+
 
    // --- RENDER ---
    return (
@@ -32,7 +38,8 @@ function App() {
       </ul>
 
        {/* 04.1. Création du formulaire*/}
-       <FruitForm fruits={fruits} setFruits={setFruits} />
+       {/* <FruitForm fruits={fruits} setFruits={setFruits} /> */}
+       <FruitForm handleAdd={handleAdd} />
     </>
    );
 }
