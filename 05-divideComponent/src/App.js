@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import Fruit from './components/Fruit'
 
 function App() {
    // --- STATE ---
@@ -32,8 +33,10 @@ function App() {
     const id = new Date().getTime();
     const nom = newFruit;
 
+    const fruitToAdd = { id, nom };
+
     setFruits([
-      ...fruits, { id, nom }
+      ...fruits, fruitToAdd
     ]);
 
     setNewFruit("");
@@ -53,9 +56,10 @@ function App() {
       <h1>Liste de fruits</h1>
       <ul>
         {fruits.map((fruit) => 
-          <li key={fruit.id}>
-            {fruit.nom} <button onClick={() => handleDelete(fruit.id)}>x</button>
-          </li>
+          // <li key={fruit.id}>
+          //   {fruit.nom} <button onClick={() => handleDelete(fruit.id)}>x</button>
+          // </li>
+          <Fruit fruitInfo={fruit} onFruitDelete={handleDelete} />
         )}
       </ul>
 
