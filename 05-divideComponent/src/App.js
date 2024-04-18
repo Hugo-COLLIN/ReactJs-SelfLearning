@@ -10,10 +10,6 @@ function App() {
     {id:3, nom:"Cerise"},
    ]);
 
-   const [newFruit, setNewFruit]  = useState("")
-
-
-
    // --- BEHAVIOURS ---
 
    /**
@@ -24,33 +20,7 @@ function App() {
     setFruits(fruits.filter(fruit => fruit.id !== id));
    }
 
-   /**
-    * 04.2. Soumission du formulaire
-    * @param {*} event événement déclenché
-    */
-   const handleSubmit = (event) => {
-    event.preventDefault();
 
-    const id = new Date().getTime();
-    const nom = newFruit;
-
-    const fruitToAdd = { id, nom };
-
-    setFruits([
-      ...fruits, fruitToAdd
-    ]);
-
-    setNewFruit("");
-   }
-
-   /**
-    * Manage the input changes
-    * @param {*} event événement déclenché
-    */
-   const handleChange = (event) => {
-    setNewFruit(event.target.value);
-   }
- 
    // --- RENDER ---
    return (
     <>
@@ -62,17 +32,7 @@ function App() {
       </ul>
 
        {/* 04.1. Création du formulaire*/}
-       <FruitForm newFruit={newFruit} handleSubmit={handleSubmit} handleChange={handleChange}/>
-      {/* <form action="submit" onSubmit={handleSubmit}>
-        <input 
-          value={newFruit} 
-          onChange={handleChange} 
-          type="text" 
-          placeholder="Ajouter un fruit..." 
-        />
-        
-        <button>Ajouter +</button>
-      </form> */}
+       <FruitForm fruits={fruits} setFruits={setFruits} />
     </>
    );
 }
