@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import Fruit from './components/Fruit'
+import FruitForm from "./components/FruitForm";
 
 function App() {
    // --- STATE ---
@@ -55,26 +56,23 @@ function App() {
     <>
       <h1>Liste de fruits</h1>
       <ul>
-        {fruits.map((fruit) => 
-          // <li key={fruit.id}>
-          //   {fruit.nom} <button onClick={() => handleDelete(fruit.id)}>x</button>
-          // </li>
+        {fruits.map((fruit) =>  
           <Fruit fruitInfo={fruit} onFruitDelete={handleDelete} />
         )}
       </ul>
 
        {/* 04.1. Création du formulaire*/}
-      <form action="submit" onSubmit={handleSubmit}>
+       <FruitForm newFruit={newFruit} handleSubmit={handleSubmit} handleChange={handleChange}/>
+      {/* <form action="submit" onSubmit={handleSubmit}>
         <input 
           value={newFruit} 
-          // onChange={(event) => setNewFruit(event.target.value)} 
           onChange={handleChange} 
           type="text" 
           placeholder="Ajouter un fruit..." 
         />
         
         <button>Ajouter +</button>
-      </form>
+      </form> */}
     </>
    );
 }
