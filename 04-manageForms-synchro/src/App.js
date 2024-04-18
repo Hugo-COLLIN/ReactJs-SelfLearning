@@ -1,17 +1,18 @@
 import { useState, useRef } from "react";
 
 function App() {
-   // state
+   // --- State ---
    const [fruits, setFruits] = useState([
     {id:1, nom:"Abricot"},
     {id:2, nom:"Banane"},
     {id:3, nom:"Cerise"},
-   ])
+   ]);
 
-   const inputRef = useRef();
+   const [newFruit, setNewFruit]  = useState("")
 
 
-   // behaviours
+
+   // --- Behaviours ---
    /**
     * Modifier le state tableau
     * @param {*} id clé de l'élément à supprimer
@@ -31,12 +32,26 @@ function App() {
     */
    const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(inputRef);
-    console.log(inputRef.current);
-    console.log(inputRef.current.value);
+
+    const id = new Date().getTime();
+    const nom = newFruit;
+
+    setFruits([
+      ...fruits, { id, nom }
+    ]);
+
+    setNewFruit("");
+
+    //1. copie
+    // 2. modif
+    //3. apply avec setter
+   }
+
+   const handleChange = (event) => {
+    setNewFruit(event.target.value);
    }
  
-   // render
+   // --- Render ---
    return (
     <>
       <h1>Liste de fruits</h1>
@@ -50,7 +65,7 @@ function App() {
 
        {/* 04.1. Création du formulaire*/}
       <form action="submit" onSubmit={handleSubmit}>
-        <input ref={inputRef} type="text" placeholder="Ajouter un fruit..." />
+        <input value={newFruit} onChange={handleChange} type="text" placeholder="Ajouter un fruit..." />
         <button>Ajouter +</button>
       </form>
     </>
