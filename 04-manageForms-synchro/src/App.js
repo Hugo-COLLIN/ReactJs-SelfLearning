@@ -61,7 +61,14 @@ function App() {
 
        {/* 04.1. Création du formulaire*/}
       <form action="submit" onSubmit={handleSubmit}>
-        <input value={newFruit} onChange={handleChange} type="text" placeholder="Ajouter un fruit..." />
+        <input 
+          value={newFruit} 
+          // onChange={(event) => setNewFruit(event.target.value)} 
+          onChange={handleChange} 
+          type="text" 
+          placeholder="Ajouter un fruit..." 
+        />
+        
         <button>Ajouter +</button>
       </form>
     </>
