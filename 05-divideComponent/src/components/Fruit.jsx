@@ -1,5 +1,10 @@
-export default function Fruit(props){
+// export default function Fruit(props){
+export default function Fruit({fruitInfo, onFruitDelete}){
     // -- STATE ---
+    // const fruitInfo = props.fruitInfo;
+    // const onFruitDelete = props.onFruiDelete;
+
+    // const {fruitInfo, onFruitDelete} = props;
 
 
     // --- BEHAVIOURS ---
@@ -7,9 +12,9 @@ export default function Fruit(props){
 
     // --- RENDER ---
     return (
-        <li key={props.fruitInfo.id}>
-          {props.fruitInfo.nom} 
-          <button onClick={() => props.onFruitDelete(props.fruitInfo.id)}>x</button>
+        <li key={fruitInfo.id}>
+          {fruitInfo.nom} 
+          <button onClick={() => onFruitDelete(fruitInfo.id)}>x</button>
         </li>
     )
 }
