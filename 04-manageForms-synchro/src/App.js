@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 
 function App() {
-   // --- State ---
+   // --- STATE ---
    const [fruits, setFruits] = useState([
     {id:1, nom:"Abricot"},
     {id:2, nom:"Banane"},
@@ -12,23 +12,19 @@ function App() {
 
 
 
-   // --- Behaviours ---
+   // --- BEHAVIOURS ---
+
    /**
     * Modifier le state tableau
     * @param {*} id clé de l'élément à supprimer
     */
    const handleDelete = (id) => {
-    const fruitsCopy = [...fruits];
-      
-    const fruitsCopyUpdated = 
-      fruitsCopy.filter(fruit => fruit.id !== id);
-
-    setFruits(fruitsCopyUpdated);
+    setFruits(fruits.filter(fruit => fruit.id !== id));
    }
 
    /**
     * 04.2. Soumission du formulaire
-    * @param {*} event événement
+    * @param {*} event événement déclenché
     */
    const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,17 +37,17 @@ function App() {
     ]);
 
     setNewFruit("");
-
-    //1. copie
-    // 2. modif
-    //3. apply avec setter
    }
 
+   /**
+    * Manage the input changes
+    * @param {*} event événement déclenché
+    */
    const handleChange = (event) => {
     setNewFruit(event.target.value);
    }
  
-   // --- Render ---
+   // --- RENDER ---
    return (
     <>
       <h1>Liste de fruits</h1>
