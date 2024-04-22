@@ -19,6 +19,16 @@ function App() {
   const [showStockedOnly, setShowStockedOnly] = useState(false);
   const [searchValue, setSearchValue] = useState("");
 
+  const visibleProducts = PRODUCTS.filter(product => {
+    if (showStockedOnly && !product.stocked) 
+      return false;
+
+    if (searchValue && !product.name.toLowerCase().includes(searchValue.toLowerCase()))
+    return false;
+
+    return true;
+  })
+
   // --- BEHAVIOURS ---
 
   // --- RENDER ---
@@ -29,7 +39,7 @@ function App() {
       searchValue={searchValue}
       onSearchChange={setSearchValue}
     />
-    <ProductTable products={PRODUCTS}/>
+    <ProductTable products={visibleProducts}/>
   </div>
 }
 
