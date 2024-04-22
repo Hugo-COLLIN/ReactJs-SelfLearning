@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { Checkbox } from "../../07-dataStream/src/components/forms/Checkbox";
-import { Input } from "../../07-dataStream/src/components/forms/Input";
-import { ProductCategoryRow } from "../../07-dataStream/src/components/products/ProductCategoryRow";
-import { ProductRow } from "../../07-dataStream/src/components/products/ProductRow";
+import { Checkbox } from "./components/forms/Checkbox";
+import { Input } from "./components/forms/Input";
+import { ProductCategoryRow } from "./components/products/ProductCategoryRow";
+import { ProductRow } from "./components/products/ProductRow";
 
 const PRODUCTS = [
   { category: 'Fruits', price: "$1", stocked: true, name: "Apple" },
