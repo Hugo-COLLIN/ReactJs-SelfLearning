@@ -6,7 +6,12 @@ import { useIncrement } from "./hooks/useIncrement";
 function App() {
   // --- STATE ---
   const [checked, toggleCheck] = useToggle();
-  const [counter, increment, decrement] = useIncrement();
+  // const [count, increment, decrement] = useIncrement(5);
+  const {count, increment, decrement} = useIncrement({
+    base: 0,
+    max:10,
+    min:0
+  });
 
   // --- BEHAVIOURS ---
 
@@ -17,7 +22,7 @@ function App() {
 
     <div>
       <button onClick={decrement}>-</button>
-      <input value={counter} readOnly/>
+      <input value={count} readOnly/>
       <button onClick={increment}>+</button>
     </div>
   </div>
