@@ -4,6 +4,7 @@ import { Input } from "./components/forms/Input";
 
 
 // useMemo : Changer une valeur seult si une dépendance (valeur, état) change
+// ! POUR OPTIMISATION DE PERFORMANCES
 function App() {
   // --- STATE ---
   const [firstName, setFirstName] = useState('John');
