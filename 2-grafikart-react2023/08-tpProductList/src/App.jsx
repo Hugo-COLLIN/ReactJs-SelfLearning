@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import { Checkbox } from "../../07-dataStream/src/components/forms/Checkbox";
 import { Input } from "../../07-dataStream/src/components/forms/Input";
 import { ProductCategoryRow } from "../../07-dataStream/src/components/products/ProductCategoryRow";
@@ -14,17 +15,35 @@ const PRODUCTS = [
 ];
 
 function App() {
+  // --- STATE ---
+  const [showStockedOnly, setShowStockedOnly] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+
+  // --- BEHAVIOURS ---
+
+  // --- RENDER ---
   return <div className="container my-3">
-    <SearchBar/>
+    <SearchBar 
+      showStockedOnly={showStockedOnly} 
+      onStockedOnlyChange={setShowStockedOnly} 
+      searchValue={searchValue}
+      onSearchChange={setSearchValue}
+    />
     <ProductTable products={PRODUCTS}/>
   </div>
 }
 
-function SearchBar () {
+function SearchBar ({showStockedOnly, onStockedOnlyChange, searchValue, onSearchChange}) {
   return <div>
     <div className="mb-3">
-      <Input value="" onChange={() => null} placeholder="Rechercher..."/>
-      <Checkbox id="stocked" checked={false} onChange={() => null} label="N'afficher que les procuits en stock"/>
+      <Input 
+      value={searchValue} onChange={onSearchChange} placeholder="Rechercher..."/>
+      <Checkbox 
+        id="stocked" 
+        checked={showStockedOnly} 
+        onChange={onStockedOnlyChange} 
+        label="N'afficher que les procuits en stock"
+      />
     </div>
   </div>
 }
