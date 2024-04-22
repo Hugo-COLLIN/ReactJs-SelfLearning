@@ -21,7 +21,7 @@ function App() {
   const [name, setName] = useState('');
 
   // --- BEHAVIOURS ---
-  useDocumentTitle('Editer ' + name)
+  useDocumentTitle(name ? `Editer ${name}` : null)
 
   // --- RENDER ---
   return <div>

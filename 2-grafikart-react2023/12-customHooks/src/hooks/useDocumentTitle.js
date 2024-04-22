@@ -1,15 +1,16 @@
+import { useRef } from "react";
 import { useEffect } from "react";
 
 // Hook = renvoyer des éléments OU créer des effets de bord
 // Ici, effet de bord
 export function useDocumentTitle(title = '') {
-  useEffect(() => {
-    const originalTitle = document.title;
+  const titleRef = useRef(document.title);
 
-    return () => document.title = originalTitle
+  useEffect(() => {
+    return () => document.title = titleRef.current;
   }, []);
 
   useEffect(() => {
-    document.title = title;
+    document.title = title ? title : titleRef.current;
   }, [title]);
 }
