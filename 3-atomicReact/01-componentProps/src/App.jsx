@@ -5,6 +5,10 @@ import Button from './components/Button'
 
 function App() {
 
+  const handleClick = () => {
+    alert('cliqué')
+  }
+
   return (
     <>
       <h1>Comprendre les props</h1>
@@ -28,9 +32,10 @@ function App() {
         </p>
       </ArticleComposition>
 
-      <Button>Click me</Button>
-      <Button disabled={true}>Click me</Button>
-      <Button disabled>Click me</Button>
+      <Button onClick={handleClick} >Click me</Button>
+      <Button onClick={handleClick} disabled={true}>Click me</Button>
+      <Button onClick={handleClick} disabled>Click me</Button>
+      <Button isLoading>Click me</Button>
     </>
   )
 }
