@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Article from './components/Article'
 import ArticleComposition from './components/ArticleComposition'
+import Button from './components/Button'
 
 function App() {
 
@@ -26,6 +27,10 @@ function App() {
           <strong>Sun Lorem</strong> ipsum dolor sit amet consectetur, adipisicing elit. Adipisci necessitatibus ducimus vero officiis fugiat est quaerat! Sed excepturi facere consectetur expedita possimus? Assumenda numquam ut vel quisquam officia itaque consequatur.
         </p>
       </ArticleComposition>
+
+      <Button>Click me</Button>
+      <Button disabled={true}>Click me</Button>
+      <Button disabled>Click me</Button>
     </>
   )
 }
