@@ -28,21 +28,41 @@ function Article({title = '', children = null}) {
     // });
 
     // s'exécute UNIQUEMENT au montage du composant => ignore les maj du state
+    // useEffect(() => {
+    //     console.log('ARTICLE MOUNTED');
+
+    //     setInterval(() => {
+    //         console.log("INTERVAL");
+    //         setElapsedTime(e => e + 1)
+    //     }, 1000);
+    // }, []); //Tableau de dépendances
+
     useEffect(() => {
         console.log('ARTICLE MOUNTED');
 
-        setInterval(() => {
-            console.log("INTERVAL");
+        const intervalId = setInterval(() => {
+            console.log("INTERVAL", intervalId);
             setElapsedTime(e => e + 1)
         }, 1000);
+        // intervalId est un id de processus
+
+        // Utiliser RETURN pour EXéCUTER DU CODE AU DéMONTAGE DU COMPOSANT
+        return () => {
+            console.log('ARTICLE DESTROYED');
+            clearInterval(intervalId); // détruire le processus : clearInterval + l'id du processus à détruire
+            // sinon, à chaque remontage du composant, les processus s'accumulent
+        }
     }, []); //Tableau de dépendances
 
+
     return (
-        <div>
-            <h1>{title}</h1>
-            <p>Temps écoulé: {convertSecondsToHMS(elapsedTime)}</p>
-            <p>{children}</p>
-        </div>
+        <>
+            <div>
+                <h1>{title}</h1>
+                <p>Temps écoulé: {convertSecondsToHMS(elapsedTime)}</p>
+                <p>{children}</p>
+            </div>
+        </>
     )
 }
 
